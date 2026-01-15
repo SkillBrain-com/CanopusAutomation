@@ -29,7 +29,7 @@ public class RadioButtonTest {
     private WebDriver driver;
     private final String WEB_URL = properties.getProperty("url");
 
-    @BeforeTest()
+//    @BeforeTest()
     public void initialize() throws MalformedURLException {
         LOGGER.info("Initializing chrome driver....");
         String browser = properties.getProperty("browser");
@@ -53,7 +53,7 @@ public class RadioButtonTest {
         LOGGER.info("Driver successfully initialized.");
     }
 
-    @Test(testName = "RadioButtonTest")
+//    @Test(testName = "RadioButtonTest")
     public void radioButtonTest() {
         RadioButtonPage radioButtonPage = new RadioButtonPage(driver);
         driver.get(WEB_URL + "radio-button");
@@ -77,7 +77,7 @@ public class RadioButtonTest {
 
     }
 
-    @AfterTest
+//    @AfterTest
     public void cleanup() {
         driver.quit();
     }

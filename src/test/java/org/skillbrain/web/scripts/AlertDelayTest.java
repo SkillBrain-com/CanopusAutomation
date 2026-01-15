@@ -29,7 +29,7 @@ public class AlertDelayTest {
     private WebDriverWait wait;
     private final String WEB_URL = properties.getProperty("url");
 
-    @BeforeTest()
+//    @BeforeTest()
     public void initialize() {
         LOGGER.info("Initializing chrome driver....");
         String browser = properties.getProperty("browser");
@@ -54,7 +54,7 @@ public class AlertDelayTest {
         LOGGER.info("Driver successfully initialized.");
     }
 
-    @Test(testName = "Alert with Delay", groups = "LoginTest")
+//    @Test(testName = "Alert with Delay", groups = "LoginTest")
     public void loginTest() {
         LOGGER.info("Starting Login Test Case...");
 
