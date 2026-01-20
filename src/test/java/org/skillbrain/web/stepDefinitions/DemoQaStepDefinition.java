@@ -4,8 +4,6 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.skillbrain.web.pages.DemoQaPage;
 import org.skillbrain.web.utils.TestContext;
 import org.testng.Assert;
@@ -30,7 +28,7 @@ public class DemoQaStepDefinition {
     }
 
 
-//    User navigates to "forms" page
+    //    User navigates to "forms" page
     @When("User navigates to {string} page")
     public void navigateTo(String card) {
         demoQaPage.navigate(card);
@@ -39,6 +37,6 @@ public class DemoQaStepDefinition {
 
     @Then("User is redirected to {string} page")
     public void userIsRedirectedToTheFormsPage(String page) {
-        Assert.assertTrue(driver.getCurrentUrl().contains(page));
+        Assert.assertEquals(driver.getCurrentUrl().toLowerCase(), page.toLowerCase());
     }
 }

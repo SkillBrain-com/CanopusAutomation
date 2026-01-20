@@ -5,14 +5,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.skillbrain.web.utils.TestContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.Assert;
-
 
 public class ElementsPage {
 
     private WebDriver driver;
+    private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
 
     @FindBy(xpath = "//span[normalize-space()='Text Box']")
     private WebElement textBox;
@@ -47,9 +47,19 @@ public class ElementsPage {
     @FindBy(xpath = "//p[@id='name']")
     private WebElement paragraphName;
 
+    @FindBy(xpath = "//span[text()='Radio Button']")
+    private WebElement clickOnRadioPage;
+
+
     public ElementsPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(this.driver, this);
+    }
+
+    public void clickOnRadioPage() {
+        LOGGER.debug("Click on Radio Buttons button on the /elements page...");
+        clickOnRadioPage.click();
+        LOGGER.debug("Click on Radio Buttons was successful.");
     }
 
     public void clickTextBox() {

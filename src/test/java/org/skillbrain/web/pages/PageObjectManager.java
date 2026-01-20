@@ -7,6 +7,7 @@ public class PageObjectManager {
     private WebDriver driver;
     private DemoQaPage demoQaPage;
     private ElementsPage elementsPage;
+    private RadioButtonPage radioButtonPage;
 
     public PageObjectManager(WebDriver driver) {
         this.driver = driver;
@@ -20,6 +21,11 @@ public class PageObjectManager {
     public ElementsPage getElementsPage() {
         elementsPage = new ElementsPage(driver);
         return elementsPage;
+    }
+
+    public RadioButtonPage getRadioButtonPage() {
+        radioButtonPage = new RadioButtonPage(driver);
+        return radioButtonPage;
     }
 
 }
