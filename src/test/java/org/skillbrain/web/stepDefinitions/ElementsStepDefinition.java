@@ -1,11 +1,8 @@
 package org.skillbrain.web.stepDefinitions;
 
-import io.cucumber.java.PendingException;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.skillbrain.web.pages.ElementsPage;
 import org.skillbrain.web.utils.TestContext;
 
@@ -50,5 +47,10 @@ public class ElementsStepDefinition {
     @Then("I check the correct information is returned on the page")
     public void iCheckTheCorrectInformationIsReturnedOnThePage() {
         elementsPage.checkSubmit();
+    }
+
+    @And("User clicks on Radio Button on the elements page")
+    public void userClicksOnRadioButtonOnTheElementsPage() {
+        elementsPage.clickOnRadioPage();
     }
 }

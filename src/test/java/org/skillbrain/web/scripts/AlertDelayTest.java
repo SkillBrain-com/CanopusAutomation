@@ -2,7 +2,6 @@ package org.skillbrain.web.scripts;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -14,9 +13,6 @@ import org.skillbrain.web.structuredScripting.AlertTest;
 import org.skillbrain.web.utils.ConfigurationUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
 
 import java.time.Duration;
 import java.util.Properties;
@@ -74,7 +70,7 @@ public class AlertDelayTest {
     }
 
 
-    @AfterTest
+//    @AfterTest
     public void cleanup() {
         webdriver.quit();
     }
