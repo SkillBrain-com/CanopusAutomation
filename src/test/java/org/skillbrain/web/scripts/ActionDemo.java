@@ -10,7 +10,7 @@ public class ActionDemo {
 
     public static void main(String[] args) {
 
-//        doubleClickTest();
+//     doubleClickTest();
 //        rightClickTest();
 
     }
