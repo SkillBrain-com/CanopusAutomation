@@ -19,7 +19,7 @@ public class ScreenshotUtil {
         String location = System.getProperty("user.dir");
 
         String destination = location + "/logs/screenshots/screenshot-"
-                + DateTimeFormatter.ofPattern("yyyyMMdd-HH:mm:ss").format(LocalDateTime.now()) +".png" ;
+                + DateTimeFormatter.ofPattern("yyyyMMdd-HH-mm-ss").format(LocalDateTime.now()) +".png" ;
         try {
             FileUtils.copyFile(source, new File(destination));
         } catch (IOException ex) {
