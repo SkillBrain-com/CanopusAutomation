@@ -1,5 +1,7 @@
 package teme.Ioana;
 
+import lombok.Getter;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -105,8 +107,9 @@ public class inputHomework {
         }
 
     public static void main(String[] args)  {
-        ScreenshotUtil screenshot = new ScreenshotUtil();
+
         WebDriver driver = new ChromeDriver();
+        ScreenshotUtil screenshotUtil = new ScreenshotUtil();
         driver.manage().window().maximize();
             try {
                 inputHomework input = new inputHomework(driver);
@@ -117,11 +120,11 @@ public class inputHomework {
                 input.fillInPermanentAddress(5);
                 input.clickSubmit();
                 input.checkSubmit("Ioana", "test@test.com", "Lt Dumitru Lazea nr 5","5");
-
+                System.out.println("The text box was successfully completed!");
             }
             catch (Exception e) {
-                screenshot.screenshot(driver);
-                throw new RuntimeException(e);
+               e.printStackTrace();
+                screenshotUtil.screenshot(driver);
             }
             finally {
                 driver.quit();
