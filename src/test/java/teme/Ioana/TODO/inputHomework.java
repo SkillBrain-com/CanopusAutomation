@@ -1,7 +1,5 @@
-package teme.Ioana;
+package teme.Ioana.TODO;
 
-import lombok.Getter;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -12,7 +10,6 @@ import org.skillbrain.web.utils.ScreenshotUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.Assert;
-import teme.patricia.Proba;
 
 public class inputHomework {
 
