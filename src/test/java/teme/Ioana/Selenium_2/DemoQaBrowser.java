@@ -1,9 +1,11 @@
 package teme.Ioana.Selenium_2;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.skillbrain.web.utils.ScreenshotUtil;
 import org.testng.Assert;
@@ -21,7 +23,8 @@ public class DemoQaBrowser {
     public static void main(String[] args) {
        // browserWindowsDemoQA();
        // newWindow();
-       // newWindowMessage();
+      //  newWindowMessage();
+          noElementFoundOnDemoQABrowser();
     }
 
     private static void browserWindowsDemoQA() {
@@ -80,39 +83,59 @@ public class DemoQaBrowser {
         }
     }
 
-//    private static void newWindowMessage(){
-//        try{
-//            options.addArguments("--start-maximized");
-//            driver.get("https://demoqa.com/browser-windows");
-//            Set<String> windowHandles = driver.getWindowHandles();
-//            System.out.println(windowHandles);
-//            WebElement newWindowMessage = driver.findElement(By.id("messageWindowButton"));
-//            newWindowMessage.click();
+    private static void newWindowMessage(){
+        try{
+            Actions actions = new Actions(driver);
+            options.addArguments("--start-maximized");
+            driver.get("https://demoqa.com/browser-windows");
+            Set<String> windowHandles = driver.getWindowHandles();
+            System.out.println(windowHandles);
+            WebElement newWindowMessage = driver.findElement(By.id("messageWindowButton"));
+            newWindowMessage.click();
 //
 //            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-//            wait.until(driver->driver.getWindowHandles().size() > windowHandles.size());
-//            windowHandles = driver.getWindowHandles();
-//            System.out.println(windowHandles);
-//
-//            Iterator<String> iterator = windowHandles.iterator();
-//            String parentWindow = iterator.next();
-//            String childWindow = iterator.next();
-//            driver.switchTo().window(childWindow);
-//           // System.out.println(driver.findElement(By.tagName("body")).getText());
-//            String newpageMessage = driver.findElement(By.tagName("body")).getText();
-//            Assert.assertTrue(newpageMessage.contains("Knowledge increases by sharing"));
-//
-//            driver.close();
-//            //System.out.println(newpageMessage);
-//            driver.switchTo().window(parentWindow);
-//
-//        }
-//        catch (Exception e) {
-//            e.printStackTrace();
-//            screenshotUtil.screenshot(driver);
-//        } finally {
-//            driver.quit();
-//        }
-//
-//    }
+//            wait.until(driver.);
+            windowHandles = driver.getWindowHandles();
+            System.out.println(windowHandles);
+
+            Iterator<String> iterator = windowHandles.iterator();
+            String parentWindow = iterator.next();
+            String childWindow = iterator.next();
+            driver.switchTo().window(childWindow);
+
+            System.out.println("New browser is open");
+         //   String messageText = driver.findElement(By.tagName("body")).getText();
+           // Assert.assertTrue(messageText.contains("Knowledge increases by sharing"));
+
+            driver.close();
+            System.out.println("New browser is closed");
+            //System.out.println(newpageMessage);
+            driver.switchTo().window(parentWindow);
+
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            screenshotUtil.screenshot(driver);
+        } finally {
+            driver.quit();
+        }
+
+    }
+    public static void noElementFoundOnDemoQABrowser(){
+        ScreenshotUtil screenshotUtil = new ScreenshotUtil();
+        try{
+            driver.manage().window().maximize();
+            driver.get("https://demoqa.com/browser-windows");
+            WebElement elementNotFound = driver.findElement(By.cssSelector("h1[class='text-center'] //Title]"));
+            elementNotFound.click();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            System.out.println("The element is not found on this page");
+            screenshotUtil.screenshot(driver);
+        }
+        finally {
+            driver.quit();
+        }
+    }
 }
