@@ -16,8 +16,8 @@ public class HerokuPage {
    private  static ScreenshotUtil screenshotUtil = new ScreenshotUtil();
 
     public static void main(String[] args) {
-      herokuPage();
-        //  BasicPage();
+      //herokuPage();
+        BasicPage();
         //  ElementAttributes();
      //   LocatorPage();
       //  HtmlTable();
