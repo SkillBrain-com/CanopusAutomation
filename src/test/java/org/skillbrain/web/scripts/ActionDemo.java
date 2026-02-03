@@ -12,10 +12,9 @@ public class ActionDemo {
 
 //        doubleClickTest();
 //        rightClickTest();
-
     }
 
-//    TODO - create test for simple click me
+
 
     private static void rightClickTest() {
         ChromeDriver driver = new ChromeDriver();
